@@ -1,6 +1,7 @@
 package com.javarush.lesson01;
 import com.javarush.lesson01.service.UserService;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Application {
@@ -10,7 +11,9 @@ public class Application {
 //        Config config = new Config();
 //        UserRepo userRepo = new UserRepo(config);
 //        UserService userService = new UserService(userRepo);
-        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml");
+
+//        ApplicationContext context = new ClassPathXmlApplicationContext("context.xml"); первый вариант контекста
+        ApplicationContext context = new AnnotationConfigApplicationContext("com.javarush.lesson01");
         UserService userService = context.getBean(UserService.class);
         System.out.println(userService);
     }
